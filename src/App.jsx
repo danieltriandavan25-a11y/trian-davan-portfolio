@@ -3,6 +3,8 @@ import Hero from "@/sections/Hero";
 import SelectedWork from "@/sections/SelectedWork";
 import Services from "@/sections/Services";
 import About from "@/sections/About";
+import Skills from "@/sections/Skills";
+import Contact from "@/sections/Contact";
 
 export default function App() {
   return (
@@ -14,9 +16,8 @@ export default function App() {
   <SelectedWork />
   <Services />
   <About />
-
-  {/* Skills, How I Work, Contact
-      are added in later phases. */}
+  <Skills />
+  <Contact />
 </main>
     </div>
   );
