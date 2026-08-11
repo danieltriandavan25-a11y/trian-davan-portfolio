@@ -1,4 +1,5 @@
 import Container from "@/components/layout/Container";
+import TextReveal from "@/components/animations/TextReveal";
 import { projects } from "@/data/projects";
 
 export default function SelectedWork() {
@@ -23,9 +24,11 @@ export default function SelectedWork() {
         </div>
 
         <div className="border-t border-[var(--color-border)]">
-          {projects.map((project) => (
-            <article
+          {projects.map((project, index) => (
+            <TextReveal
               key={project.number}
+              as="article"
+              delay={index * 80}
               className="grid gap-6 border-b border-[var(--color-border)] py-8 md:grid-cols-[80px_1fr_auto] md:items-start md:gap-8 md:py-10"
             >
               <span className="text-sm text-[var(--color-ink-faint)]">
@@ -33,6 +36,16 @@ export default function SelectedWork() {
               </span>
 
               <div>
+                {project.image && (
+                  <div className="mb-6 overflow-hidden border border-[var(--color-border)]">
+                    <img
+                      src={project.image}
+                      alt={`${project.title} interface preview`}
+                      className="h-auto w-full object-cover transition-transform duration-300 ease-out hover:scale-[1.02]"
+                    />
+                  </div>
+                )}
+
                 <h3 className="text-xl font-semibold tracking-[-0.01em] text-[var(--color-ink)] md:text-2xl">
                   {project.title}
                 </h3>
@@ -53,13 +66,19 @@ export default function SelectedWork() {
                 </div>
               </div>
 
-              <a
-                href={project.href}
-                className="text-sm font-medium text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)] md:pt-1"
-              >
-                View project →
-              </a>
-            </article>
+              {project.href ? (
+                <a
+                  href={project.href}
+                  className="text-sm font-medium text-[var(--color-ink-muted)] transition-colors hover:text-[var(--color-ink)] md:pt-1"
+                >
+                  View project →
+                </a>
+              ) : (
+                <span className="text-sm font-medium text-[var(--color-ink-faint)] md:pt-1">
+                  Private project
+                </span>
+              )}
+            </TextReveal>
           ))}
         </div>
       </Container>
