@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+  Design tokens for the portfolio.
+  Non-negotiable direction: white background, near-black type,
+  minimal color, thin subtle borders, generous whitespace,
+  editorial/premium feel (Apple / Linear-inspired simplicity).
+*/
+@theme {
+  /* Color: kept to a near-monochrome scale on purpose. */
+  --color-ink: #0a0a0a; /* primary text */
+  --color-ink-muted: #52525b; /* secondary text */
+  --color-ink-faint: #a1a1aa; /* tertiary / captions */
+  --color-surface: #ffffff; /* page background */
+  --color-border: #e5e5e5; /* thin subtle borders */
+
+  /* Typography: system font stack, no external font requests. */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+
+  /* Tight, editorial tracking for large display type. */
+  --tracking-tight-display: -0.02em;
+
+  /* Consistent max content width across sections. */
+  --container-max: 72rem; /* 1152px */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Typography scale — headings get tighter tracking, body stays neutral. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight-display);
+    line-height: 1.1;
+  }
+
+  h1 {
+    font-size: 2.5rem; /* 40px, scales up via responsive utilities per-section later */
+  }
+
+  h2 {
+    font-size: 1.875rem; /* 30px */
+  }
+
+  h3 {
+    font-size: 1.25rem; /* 20px */
+  }
+
+  p {
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* Visible, understated keyboard focus — accessibility without flashiness. */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+}
