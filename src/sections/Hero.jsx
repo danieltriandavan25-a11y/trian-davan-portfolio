@@ -12,9 +12,13 @@ export default function Hero() {
   return (
     <section aria-labelledby="hero-heading" className="py-24 md:py-32">
       <Container className="flex flex-col items-start">
-        <p className="text-sm font-medium tracking-tight text-[var(--color-ink-muted)]">
+        <TextReveal
+          as="p"
+          delay={0}
+          className="text-sm font-medium tracking-tight text-[var(--color-ink-muted)]"
+        >
           Trian Davan — Web Developer
-        </p>
+        </TextReveal>
 
         <SplitText
           as="h1"
@@ -34,7 +38,11 @@ export default function Hero() {
           clean, functional, and built to last.
         </TextReveal>
 
-        <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+        <TextReveal
+          as="div"
+          delay={240}
+          className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+        >
           <a
             href="#work"
             className="inline-flex items-center justify-center border border-[var(--color-ink)] bg-[var(--color-ink)] px-6 py-3 text-sm font-medium text-[var(--color-surface)] transition-colors hover:bg-[var(--color-ink-muted)] hover:border-[var(--color-ink-muted)]"
@@ -48,9 +56,13 @@ export default function Hero() {
           >
             Let&rsquo;s Work Together
           </a>
-        </div>
+        </TextReveal>
 
-        <div className="mt-12 flex items-center gap-2">
+        <TextReveal
+          as="div"
+          delay={320}
+          className="mt-12 flex items-center gap-2"
+        >
           <span
             aria-hidden="true"
             className="h-2 w-2 rounded-full bg-[var(--color-ink)]"
@@ -58,7 +70,7 @@ export default function Hero() {
           <span className="text-sm text-[var(--color-ink-muted)]">
             Available for freelance work
           </span>
-        </div>
+        </TextReveal>
       </Container>
     </section>
   );

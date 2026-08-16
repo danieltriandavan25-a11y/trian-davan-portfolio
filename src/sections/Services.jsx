@@ -95,7 +95,7 @@ export default function Services() {
 
           <a
             href="#contact"
-            className="text-sm font-medium text-[var(--color-ink)] transition-colors hover:text-[var(--color-ink-muted)]"
+            className="border border-[var(--color-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-ink)]"
           >
             Let&rsquo;s work together →
           </a>
