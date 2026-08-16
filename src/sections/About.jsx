@@ -1,4 +1,5 @@
 import Container from "@/components/layout/Container";
+import TextReveal from "@/components/animations/TextReveal";
 
 const INFO = [
   { label: "Based in", value: "Philippines" },
@@ -42,7 +43,7 @@ export default function About() {
 
         <div className="grid gap-12 md:grid-cols-2 md:gap-16">
           {/* Bio copy */}
-          <div className="max-w-xl space-y-6">
+          <TextReveal as="div" className="max-w-xl space-y-6">
             <p className="text-base leading-relaxed text-[var(--color-ink-muted)] md:text-lg">
               I&rsquo;m Trian, a web developer focused on building clean,
               practical, and thoughtful digital experiences.
@@ -52,10 +53,10 @@ export default function About() {
               applications, working across the frontend and backend to
               create products that are useful, reliable, and easy to use.
             </p>
-          </div>
+          </TextReveal>
 
           {/* Info grid + values */}
-          <div>
+          <TextReveal as="div" delay={80}>
             <div className="border-t border-[var(--color-border)]">
               {INFO.map((item) => (
                 <div
@@ -88,7 +89,7 @@ export default function About() {
                 ))}
               </ul>
             </div>
-          </div>
+          </TextReveal>
         </div>
       </Container>
     </section>
