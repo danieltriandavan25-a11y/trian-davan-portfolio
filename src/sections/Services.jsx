@@ -1,4 +1,5 @@
 import Container from "@/components/layout/Container";
+import TextReveal from "@/components/animations/TextReveal";
 
 const SERVICES = [
   {
@@ -59,9 +60,11 @@ export default function Services() {
         </div>
 
         <div className="border-t border-[var(--color-border)]">
-          {SERVICES.map((service) => (
-            <article
+          {SERVICES.map((service, index) => (
+            <TextReveal
               key={service.number}
+              as="article"
+              delay={index * 80}
               className="grid gap-6 border-b border-[var(--color-border)] py-8 md:grid-cols-[80px_1fr_auto] md:items-start md:gap-8 md:py-10"
             >
               <span className="text-sm text-[var(--color-ink-faint)]">
@@ -81,7 +84,7 @@ export default function Services() {
               <span className="border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-ink-muted)] md:pt-1 md:mt-1 inline-flex items-center self-start">
                 {service.category}
               </span>
-            </article>
+            </TextReveal>
           ))}
         </div>
 
