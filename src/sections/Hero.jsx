@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import TextReveal from "@/components/animations/TextReveal";
+import SplitText from "@/components/animations/SplitText";
 
 /**
  * Hero — Phase 2.
@@ -15,14 +16,13 @@ export default function Hero() {
           Trian Davan — Web Developer
         </p>
 
-        <TextReveal
+        <SplitText
           as="h1"
           id="hero-heading"
           delay={80}
+          text="Building thoughtful websites and web experiences."
           className="mt-6 max-w-3xl text-4xl font-semibold tracking-[-0.02em] leading-[1.1] text-[var(--color-ink)] md:text-6xl"
-        >
-          Building thoughtful websites and web experiences.
-        </TextReveal>
+        />
 
         <TextReveal
           as="p"
