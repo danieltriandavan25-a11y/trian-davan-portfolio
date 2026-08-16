@@ -37,11 +37,11 @@ export default function SelectedWork() {
 
               <div>
                 {project.image && (
-                  <div className="mb-6 overflow-hidden border border-[var(--color-border)]">
+                  <div className="mb-6 aspect-[16/10] overflow-hidden rounded-lg border border-[var(--color-border)]">
                     <img
                       src={project.image}
                       alt={`${project.title} interface preview`}
-                      className="h-auto w-full object-cover transition-transform duration-300 ease-out hover:scale-[1.02]"
+                      className="h-full w-full object-cover transition-transform duration-300 ease-out hover:scale-[1.02]"
                     />
                   </div>
                 )}
