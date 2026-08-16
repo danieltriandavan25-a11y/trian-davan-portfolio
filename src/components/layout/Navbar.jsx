@@ -7,8 +7,9 @@ const NAV_LINKS = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
 ];
+
+const CONTACT_LINK = { label: "Contact", href: "#contact" };
 
 /**
  * Navbar — Phase: navigation.
@@ -34,7 +35,7 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="border-b border-[var(--color-border)] bg-[var(--color-surface)]">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border)] bg-[var(--color-surface)]">
       <Container className="flex h-16 items-center justify-between">
         <span className="text-sm font-medium tracking-tight text-[var(--color-ink)]">
           Trian Davan
@@ -54,6 +55,12 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          <a
+            href={CONTACT_LINK.href}
+            className="border border-[var(--color-border)] px-4 py-1.5 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-ink)]"
+          >
+            {CONTACT_LINK.label}
+          </a>
         </nav>
 
         {/* Mobile menu trigger */}
@@ -115,6 +122,14 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <a
+                href={CONTACT_LINK.href}
+                tabIndex={isOpen ? 0 : -1}
+                onClick={closeMenu}
+                className="mt-4 flex items-center justify-center border border-[var(--color-border)] px-4 py-3 text-sm font-medium text-[var(--color-ink)] transition-colors hover:border-[var(--color-ink)]"
+              >
+                {CONTACT_LINK.label}
+              </a>
             </nav>
           </Container>
         </div>
