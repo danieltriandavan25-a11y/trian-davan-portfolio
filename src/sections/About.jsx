@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import TextReveal from "@/components/animations/TextReveal";
+import ProfileCard from "@/components/ui/ProfileCard";
 
 const INFO = [
   { label: "Based in", value: "Philippines" },
@@ -55,40 +56,14 @@ export default function About() {
             </p>
           </TextReveal>
 
-          {/* Info grid + values */}
+          {/* Profile card */}
           <TextReveal as="div" delay={80}>
-            <div className="border-t border-[var(--color-border)]">
-              {INFO.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-center justify-between border-b border-[var(--color-border)] py-4"
-                >
-                  <span className="text-sm text-[var(--color-ink-muted)]">
-                    {item.label}
-                  </span>
-                  <span className="text-sm font-medium text-[var(--color-ink)]">
-                    {item.value}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-10">
-              <p className="text-sm font-medium text-[var(--color-ink-muted)]">
-                What I value
-              </p>
-
-              <ul className="mt-4 space-y-3">
-                {VALUES.map((value) => (
-                  <li
-                    key={value}
-                    className="text-sm leading-relaxed text-[var(--color-ink)] md:text-base"
-                  >
-                    {value}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ProfileCard
+              name="Trian Davan"
+              role="Web Developer"
+              info={INFO}
+              values={VALUES}
+            />
           </TextReveal>
         </div>
       </Container>

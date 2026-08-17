@@ -1,5 +1,34 @@
 import Container from "@/components/layout/Container";
 import TextReveal from "@/components/animations/TextReveal";
+import LogoLoop, { BrandMark } from "@/components/ui/LogoLoop";
+import {
+  siReact,
+  siJavascript,
+  siHtml5,
+  siCss,
+  siTailwindcss,
+  siFirebase,
+  siGit,
+  siGithub,
+  siVite,
+  siCloudinary,
+} from "simple-icons/icons";
+
+const TECH_LOGOS = [
+  { icon: siReact, title: "React" },
+  { icon: siJavascript, title: "JavaScript" },
+  { icon: siHtml5, title: "HTML5" },
+  { icon: siCss, title: "CSS3" },
+  { icon: siTailwindcss, title: "Tailwind CSS" },
+  { icon: siFirebase, title: "Firebase" },
+  { icon: siGit, title: "Git" },
+  { icon: siGithub, title: "GitHub" },
+  { icon: siVite, title: "Vite" },
+  { icon: siCloudinary, title: "Cloudinary" },
+].map((tech) => ({
+  title: tech.title,
+  node: <BrandMark icon={tech.icon} />,
+}));
 
 const SKILL_CATEGORIES = [
   {
@@ -71,6 +100,27 @@ export default function Skills() {
             </TextReveal>
           ))}
         </div>
+
+        <TextReveal
+          as="div"
+          delay={240}
+          className="mt-12 border-t border-[var(--color-border)] pt-8 md:mt-16 md:pt-10"
+        >
+          <p className="text-sm font-medium text-[var(--color-ink-muted)]">
+            Technologies I work with
+          </p>
+
+          <div className="mt-6">
+            <LogoLoop
+              logos={TECH_LOGOS}
+              speed={40}
+              logoHeight={28}
+              gap={48}
+              pauseOnHover
+              ariaLabel="Technologies I work with"
+            />
+          </div>
+        </TextReveal>
       </Container>
     </section>
   );

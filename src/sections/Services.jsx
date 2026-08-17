@@ -1,5 +1,6 @@
 import Container from "@/components/layout/Container";
 import TextReveal from "@/components/animations/TextReveal";
+import MagicBento from "@/components/ui/MagicBento";
 
 const SERVICES = [
   {
@@ -33,9 +34,13 @@ const SERVICES = [
 ];
 
 /**
- * Services — Phase 4.
- * Numbered editorial list of what I offer, styled to match the
- * Selected Work section (numbers, thin borders, generous whitespace).
+ * Services — Phase 4 (Stage 2: Magic Bento).
+ * What I offer, laid out as an asymmetric bento grid: the first
+ * service as a full-width, slightly more spacious hero card, with
+ * the remaining three underneath as a three-across row that stacks
+ * to a single column on mobile. Cards use MagicBento for a subtle
+ * grayscale cursor-tracked highlight. Numbers, thin borders, and
+ * category tags carry over from the original editorial system.
  * Closes with a simple text CTA pointing to #contact.
  */
 export default function Services() {
@@ -43,7 +48,7 @@ export default function Services() {
     <section
       id="services"
       aria-labelledby="services-heading"
-      className="py-24 md:py-32"
+      className="pt-24 pb-16 md:pt-32 md:pb-20"
     >
       <Container>
         <div className="mb-12 md:mb-16">
@@ -59,33 +64,58 @@ export default function Services() {
           </h2>
         </div>
 
-        <div className="border-t border-[var(--color-border)]">
-          {SERVICES.map((service, index) => (
-            <TextReveal
-              key={service.number}
-              as="article"
-              delay={index * 80}
-              className="grid gap-6 border-b border-[var(--color-border)] py-8 md:grid-cols-[80px_1fr_auto] md:items-start md:gap-8 md:py-10"
-            >
-              <span className="text-sm text-[var(--color-ink-faint)]">
-                {service.number}
-              </span>
+        <div className="border-t border-[var(--color-border)] pt-8 md:pt-10">
+          {/* Hero card — first service, slightly more spacious, full width */}
+          <TextReveal as="article" delay={0}>
+            <MagicBento className="p-6 md:p-10">
+              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between md:gap-8">
+                <div className="flex gap-6 md:gap-8">
+                  <span className="text-sm text-[var(--color-ink-faint)]">
+                    {SERVICES[0].number}
+                  </span>
 
-              <div>
-                <h3 className="text-xl font-semibold tracking-[-0.01em] text-[var(--color-ink)] md:text-2xl">
-                  {service.title}
-                </h3>
+                  <div>
+                    <h3 className="text-2xl font-semibold tracking-[-0.01em] text-[var(--color-ink)] md:text-3xl">
+                      {SERVICES[0].title}
+                    </h3>
 
-                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-muted)] md:text-base">
-                  {service.description}
-                </p>
+                    <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--color-ink-muted)] md:text-base">
+                      {SERVICES[0].description}
+                    </p>
+                  </div>
+                </div>
+
+                <span className="inline-flex w-fit items-center self-start border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-ink-muted)]">
+                  {SERVICES[0].category}
+                </span>
               </div>
+            </MagicBento>
+          </TextReveal>
 
-              <span className="border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-ink-muted)] md:pt-1 md:mt-1 inline-flex items-center self-start">
-                {service.category}
-              </span>
-            </TextReveal>
-          ))}
+          {/* Remaining three services — three-across row, stacks on mobile */}
+          <div className="mt-6 grid grid-cols-1 gap-6 md:mt-8 md:grid-cols-3">
+            {SERVICES.slice(1).map((service, index) => (
+              <TextReveal key={service.number} as="article" delay={(index + 1) * 80}>
+                <MagicBento className="flex h-full flex-col p-6 md:p-8">
+                  <span className="text-sm text-[var(--color-ink-faint)]">
+                    {service.number}
+                  </span>
+
+                  <h3 className="mt-3 text-xl font-semibold tracking-[-0.01em] text-[var(--color-ink)]">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm leading-relaxed text-[var(--color-ink-muted)]">
+                    {service.description}
+                  </p>
+
+                  <span className="mt-6 inline-flex w-fit items-center self-start border border-[var(--color-border)] px-3 py-1 text-xs text-[var(--color-ink-muted)]">
+                    {service.category}
+                  </span>
+                </MagicBento>
+              </TextReveal>
+            ))}
+          </div>
         </div>
 
         <div className="mt-12 flex flex-col items-start gap-2 md:mt-16">
